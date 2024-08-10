@@ -2,12 +2,14 @@
 
 # Compiled output
 /dist
+/src/mock-server/dist
 /tmp
 /out-tsc
 /bazel-out
 
 # Node
 /node_modules
+/src/mock-server/node_modules
 npm-debug.log
 yarn-error.log
 
