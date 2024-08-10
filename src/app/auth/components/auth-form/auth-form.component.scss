@@ -1,0 +1,77 @@
+// @import "styles/styles.scss";
+// @import "styles/variables.scss";
+// @import "styles/colors.scss";
+@import 'variables.scss';
+@import 'colors.scss';
+@import 'styles.scss';
+// // Variables for easy customization
+// $primary-color: #007bff;
+// $error-color: #e74c3c;
+// $input-border-color: #ccc;
+// $input-border-radius: 4px;
+// $input-padding: 8px;
+// $input-focus-border-color: #80bdff;
+// $button-border-radius: 4px;
+// $button-padding: 10px 15px;
+// $button-disabled-bg: #ccc;
+
+// Style for the form group
+.form-group {
+  margin-bottom: 15px;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  input {
+    width: 100%;
+    padding: $input-padding;
+    box-sizing: border-box;
+    border: 1px solid $input-border-color;
+    border-radius: $input-border-radius;
+    font-size: 16px;
+    color: #333;
+
+    &:focus {
+      border-color: $input-focus-border-color;
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    &[aria-invalid='true'] {
+      border-color: $error-color;
+      box-shadow: none;
+    }
+  }
+
+  .error {
+    color: $error-color;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+}
+
+// Style for the button
+button {
+  padding: $button-padding;
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  &:disabled {
+    background-color: $button-disabled-bg;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,49 @@
+<section className='login'>
+  <div className='login__wrapper'>
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()" aria-labelledby="authFormLabel">
+      <fieldset>
+        <legend id="authFormLabel">Sign In</legend>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            [attr.aria-invalid]="authForm.get('email')?.invalid"
+            aria-required="true"
+            class="form-control"
+          />
+
+          <!-- to do aria region -->
+          <div *ngIf="authForm.get('email')?.invalid && authForm.get('email')?.touched" class="error">
+            <small *ngIf="authForm.get('email')?.errors?.['required']">Email is required.</small>
+            <small *ngIf="authForm.get('email')?.errors?.['email']">Please enter a valid email address.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            [attr.aria-invalid]="authForm.get('password')?.invalid"
+            aria-required="true"
+            class="form-control"
+          />
+
+            <!-- to do aria region -->
+          <div *ngIf="authForm.get('password')?.invalid && authForm.get('password')?.touched" class="error">
+            <small *ngIf="authForm.get('password')?.errors?.['required']">Password is required.</small>
+            <small *ngIf="authForm.get('password')?.errors?.['minlength']">
+              Password must be at least 6 characters long.
+            </small>
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="authForm.invalid" class="btn btn-primary">Sign In</button>
+      </fieldset>
+    </form>
+  </div>
+</section>
